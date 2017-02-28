@@ -62,11 +62,36 @@ keep them organized.
 
 > Answer here
 
+>To-Do List contains ...
+>-Tasks
+>--Task Descriptor
+>--Time Start
+>--Time Complete
+
+>-Projects
+>--Project Name
+>--Sets of Tasks
+
 ### 2. Photo Sharing App
 
 In this app, users can upload photos to their accounts and share them with others. These photos can be grouped into albums.
 
 > Answer here
+
+>Photo Data
+>-Filename
+>-Date taken or uploaded
+>-Share URL
+>Album Data
+>-Photo List
+>-Description
+>-Date Created
+>-Share URL
+>User Data
+>-Username
+>-Photo Set
+>-Album Set
+
 
 ### 3. Home Automation Manager
 
@@ -77,6 +102,13 @@ and down.
 
 > Answer here
 
+>Home
+>-Set of Lights
+>-Temperature
+>Lights
+>-ID/Name
+>-Light toggle (on/off)
+
 ### 4. Sneaker Store
 
 This app will allow customers to browse a list of products (sneakers, in this
@@ -84,6 +116,18 @@ case), add those products to a cart, and save that cart as a past order once the
 purchase is complete.
 
 > Answer here
+
+>Product (stored as SKU or item number)
+>-Item Name
+>-Description
+>-Price
+>Cart Item
+>-Product number
+>-quantity
+>Orders
+>-Set of Cart Items
+>-Order Status (pending/complete)
+>-Order Date
 
 ## Representing Abstractions in Code
 
@@ -140,6 +184,7 @@ var exampleLine = {
 What are some advantages and disadvantages of choosing these representations? Please give at least one example of each.
 
 > Answer here
+>The app isn't currently storing one of the key data points intended for the app, Number of stops, that's a very big disadvantage! The stations could theoretically be stored instead in an array, allowing for calcuations of how many stops between each. THough this storage method is a bit quicker to grab other info about the stations, as in an array, you'd need a step discerning the station location within the array.
 
 ### 6. Doctor Appointment App
 
@@ -243,6 +288,8 @@ other? Are there any circumstances in which the other representation might be
 the better choice?
 
 > Answer here
+>In the first, with the info grouped under the doctor, which makes it easy to see the appointments a doctor has, but not really great for looking at things via patient. The second is grouped by appointment and makes it easier to find by the appointments. In the second, the means of finding both patient and doctor is consistient. 
+>THe first example would be more useful if this app was being used to track information based on the doctor, either for personal tracking or for sheduling specifically for a doctor. The second is better for finding via the appointment itself and for finding patient information. Ultimately, it would depend on the apps intended user.
 
 ## Tying It Together
 
@@ -255,11 +302,65 @@ a.  What are some possible entities that your application might use to model its
 
   > Answer here
 
+  >Player
+  >-Username
+  >-Avatar
+
+  >Move
+  >-Player Role (X or O)
+  >-Location (0-8)
+
+  >Game
+  >-Player One
+  >-PLayer Two
+  >-Logged Moves (position and X or O)
+
+
 b.  How might those entities be represented in JavaScript code?
 
   > Answer here
+  /* 
+  var examplePlayer = {
+    username: 'Mario',
+    avatar: 'http://...'
+  };
+  var exampleMove = {
+    playerRole = "O",
+    moveLocation = 4
+  }
+
+
+  var exampleGame = {
+    oPLayer = {
+      username: "Mario",
+      avatar: "http://nintendo.com/mushroomKingdom/Mario.jpg"
+    }
+    xPLayer = {
+      username: "Luigi",
+      avatar: "http://nintendo.com/mushroomKingdom/Mario.jpg"
+    }
+    moves [
+      {playerRole: "O",
+      movePosition: 3},
+      {playerRole: "X",
+      movePosition: 4},
+      {playerRole: "O",
+      movePosition: 0},
+      {playerRole: "X",
+      movePosition: 6},
+      {playerRole: "O",
+      movePosition: 2},
+      {playerRole: "X",
+      movePosition: 1},
+      {playerRole: "O",
+      movePosition: 5}
+      ]
+    };
+    */
+
 
 c.  Justify your choices in a) and b). Why these entities? Why these
     representations?
 
   > Answer here
+  >Players would need a username, and would probably like an icon/avatar. Moves would require theplayer be assigned which role they play (o or x) and which location that player plays into. The game would need to have a record of th players, assigned to roles, and their logged moves. By assigning palyers to a role and assigning moves to standard positions, we can easily track the game. When we create our funstions to evaluate the win conditions  and display graphical elements, this setp allows for ease of access to all nessicary properties.

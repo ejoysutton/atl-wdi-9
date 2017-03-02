@@ -17,7 +17,7 @@ body {
   cursor: pointer;
 }
 
-#traffic-light {
+#trafficLight {
   height: 550px;
   width: 200px;
   float: left;

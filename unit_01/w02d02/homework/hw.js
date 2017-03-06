@@ -2,31 +2,124 @@
 // Copyright (C) 2016 Matt Brendzel under the GNU General Public License.
 // See LICENSE for details.
 
-var timerUI = {
-  drawNumericDisplay: function(timerValue){
-    // Your Code Here    
-    document.getElementById('numeric-display').textContent = timerValue;
+/// Data & Core Business Logic ///
+const Stopwatch = {
+  tickClock: function(){
+    if (Stopwatch.isRunning) {
+      setTimeout(Stopwatch.tickClock, 10); // trigger next clock tick
+      Stopwatch.advanceTenMillisecs();
+      AppController.handleClockTick();
+    }
   },
-  drawProgressBars: function(timerValue){
-    // Your Code Here
-        var timeElapsed = 100 - timerValue;
-document.getElementsByClassName('progress-bar')[0].style.width = timeElapsed + '%';
+  isRunning: false,
+  mins: 0,
+  secs: 0,
+  millisecs: 0,
+  // laps: [],
+  // DO NOT EDIT ABOVE THIS LINE
+  advanceTenMillisecs: function(){
+    this.millisecs += 10;
+    if (this.millisecs >= 1000) {
+        this.millisecs -= 1000;
+        this.secs ++;
+    }
+    if (this.secs >= 60) {
+        this.secs -= 60;
+        this.mins ++;
+    }
   },
-  drawLitFuses: function(timerValue){
-    // Your Code Here
-        var percentUnburnt = timerValue/100;
-    document.getElementsByClassName('unburnt')[0].style.width = percentUnburnt*98 + '%';
-document.getElementsByClassName('burnt')[0].style.width = (1 - percentUnburnt)*98 + '%';
+  reset: function(){
+    this.millisecs = 000;
+    this.secs = 00;
+    this.mins = 00;
   },
-  drawCrawlers: function(timerValue){
+  start: function(){
+    if (!this.isRunning) {
+        this.isRunning = true;
+        this.tickClock();
+    }
+  },
+  stop: function(){
+      this.isRunning = false;
+  },
+  // lap: function(){
+  //   // Your Code Here
+  // }
+};
+
+/// User Interface ///
+const ViewEngine = {
+  updateTimeDisplay: function(mins, secs, millisecs){
+    document.getElementById('millisecs').innerHTML = 
+    ViewHelpers.zeroFillMillisecs(millisecs/10, 3);
+    document.getElementById('secs').innerHTML = 
+    ViewHelpers.zeroFill(secs, 2);
+    document.getElementById('mins').innerHTML = 
+    ViewHelpers.zeroFill(mins, 2);
+  },
+  // updateLapListDisplay: function(laps){
+  //   // Your Code Here
+  // },
+};
+const ViewHelpers = {
+  zeroFill: function(number, length){
+    var numberString = number.toString();
+    let numZeroes = (length - numberString.length, 0);
+    for( var i = 0; i < (length - numberString.length); i++){
+      numberString = "0" + numberString;
+    }
+    return numberString;
+  },
+zeroFillMillisecs: function(number, length){
     // Your Code Here
-        var timeElapsed = 100 - timerValue;
-    if (timerValue%2 === 0) {
-      document.getElementsByClassName('crawler')[0].style.marginTop = '0px';
+    if (number < 10) {
+    var numberStringShort = number.toString();
+    let numZeroes = (length - numberStringShort.length, 0);
+    for( var i = 0; i < (length - numberStringShort.length); i++){
+      numberStringShort = "00" + numberStringShort;
+          }
+    return numberStringShort;
     }
     else {
-      document.getElementsByClassName('crawler')[0].style.marginTop = '10px';
+    var numberString = number.toString();
+    let numZeroes = (length - numberString.length, 0);
+    for( var j = 0; j < (length - numberString.length); j++){
+      numberString = "0" + numberString;
     }
-document.getElementsByClassName('crawler')[0].style.marginLeft = (timeElapsed*10) + 'px';
+  
+    return numberString;
   }
+}
+};
+
+/// Top-Level Application Code ///
+const AppController = {
+  handleClockTick: function(){
+    ViewEngine.updateTimeDisplay(Stopwatch.mins, Stopwatch.secs, Stopwatch.millisecs);
+    // Your Code Here
+  },
+  handleClickStart: function() {
+    if (!Stopwatch.isRunning) { Stopwatch.start(); 
+    }
+    // Your Code Here
+  },
+  handleClickStopReset: function(){
+    if (Stopwatch.isRunning) {
+      Stopwatch.stop();
+    } else {
+      ViewEngine.updateTimeDisplay(00, 00, 000);
+      Stopwatch.reset();
+    }
+  
+    // Your Code Here
+  },
+  // handleClickLap: function(){
+  //   // Your Code Here  ---skip this
+  // }
+};
+
+window.onload = function(){
+  // Attach AppController methods to the DOM as -event handlers- here.  
+  document.getElementById('start').onclick = AppController.handleClickStart;
+  document.getElementById('stop').onclick = AppController.handleClickStopReset;
 };

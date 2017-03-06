@@ -59,7 +59,7 @@ const ViewEngine = {
   updateTimeDisplay: function(mins, secs, millisecs){
     document.getElementById('mins').innerHTML = ViewHelpers.zeroFill(mins, 2);
     document.getElementById('secs').innerHTML = ViewHelpers.zeroFill(secs, 2);
-    document.getElementById('millisecs').innerHTML = ViewHelpers.zeroFill(millisecs/10, 2);
+    document.getElementById('millisecs').innerHTML = ViewHelpers.zeroFill(millisecs/10, 3);
   },
   updateLapListDisplay: function(){
     var laps = Stopwatch.laps;

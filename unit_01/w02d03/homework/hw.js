@@ -121,4 +121,4 @@ window.onload = function(){
   AppController.handleClickStopReset;
 };
 
-//Come back and do laps later
+//Come back and do laps later. Consider using this layout as a bootstrap or vanilla css practice.

@@ -1046,8 +1046,12 @@
       <!-- Build Tools- https://github.com/ga-wdi-lessons/build-tools -->
     </td>
     <td>
+<<<<<<< HEAD
       <a href="https://github.com/ATL-WDI-Curriculum/atl-wdi-9/blob/master/unit_02/w06d03/instructor_notes/express_router.md">Express Routing</a><br />
       <a href="https://github.com/ATL-WDI-Curriculum/atl-wdi-9/blob/master/unit_02/w06d03/instructor_notes/lib_app.js">Lib App</a>
+=======
+      <a href="https://github.com/ATL-WDI-Curriculum/atl-wdi-9/blob/master/unit_02/w06d02/instructor_notes/express_views.md">Handlebar Views</a>
+>>>>>>> fd03f6735e3154e41b7d1a2f3bbd89b2bb0d066b
     </td>
     <td>
       <a href="https://github.com/ATL-WDI-Curriculum/atl-wdi-9/blob/master/unit_02/w07d03/instructor_notes/data_modeling.md">Database Design</a>
@@ -1067,7 +1071,11 @@
       <a href="https://github.com/ATL-WDI-Curriculum/atl-wdi-9/blob/master/unit_02/w06d02/instructor_notes/express_intro.md">Intro to Express</a>
     </td>
     <td>
+<<<<<<< HEAD
       <a href="https://github.com/ATL-WDI-Curriculum/node-express-intro-lesson">Review</a>
+=======
+      <a href="https://github.com/ATL-WDI-Curriculum/atl-wdi-9/blob/master/unit_02/w06d03/instructor_notes/express_router.md">Express Routing</a>
+>>>>>>> fd03f6735e3154e41b7d1a2f3bbd89b2bb0d066b
     </td>
     <td>
       <a href="https://github.com/ATL-WDI-Curriculum/atl-wdi-9/blob/master/unit_02/w06d04/instructor_notes/express_create_read.md">DB Operations Create/Read</a>
@@ -1083,6 +1091,7 @@
   <tr>
     <td><strong>Mod 3</strong></td>
     <td>
+<<<<<<< HEAD
       <a href="https://github.com/ATL-WDI-Curriculum/atl-wdi-9/blob/master/unit_02/w06d02/instructor_notes/express_views.md">Handlebar Views</a>
     </td>
     <td>
@@ -1093,6 +1102,18 @@
     </td>
     <td>
       <a href="https://github.com/ATL-WDI-Curriculum/atl-wdi-9/blob/master/unit_02/w06d05/instructor_notes/update_delete.md">DB Operations Update/Delete</a>
+=======
+        <a href="https://github.com/ATL-WDI-Curriculum/atl-wdi-9/blob/master/unit_02/w06d01/student_labs/node_lab.md">Node Lab</a><br />
+    </td>
+    <td>
+        <a href="https://github.com/ATL-WDI-Curriculum/atl-wdi-9/blob/master/unit_02/w06d03/student_labs/router_lab.md">REVIEW: Router LAB</a>
+    </td>
+    <td>
+        <a href="https://github.com/ATL-WDI-Curriculum/atl-wdi-9/blob/master/unit_02/w06d04/instructor_notes/express_create_read.md">DB Operations Create/Read</a>
+    </td>
+    <td>
+        <a href="https://github.com/ATL-WDI-Curriculum/atl-wdi-9/blob/master/unit_02/w06d05/instructor_notes/update_delete.md">DB Operations Update/Delete</a>
+>>>>>>> fd03f6735e3154e41b7d1a2f3bbd89b2bb0d066b
     </td>
     <td>
       <a href="https://github.com/ATL-WDI-Curriculum/atl-wdi-9/blob/master/unit_03/w09d01/instructor_notes/ajax_with_jquery.md">AJAX Session</a>
@@ -1104,7 +1125,10 @@
     <td><strong>Mod 4</strong></td>
     <td>
       <a href="https://github.com/ATL-WDI-Curriculum/atl-wdi-9/blob/master/unit_02/w06d01/student_labs/node_lab.md">Node Lab</a><br />
+<<<<<<< HEAD
       <a href="https://github.com/ATL-WDI-Curriculum/atl-wdi-9/blob/master/unit_02/w06d03/student_labs/router_lab.md">Handlebar Router LAB</a>
+=======
+>>>>>>> fd03f6735e3154e41b7d1a2f3bbd89b2bb0d066b
     </td>
     <td>
       <a href="https://github.com/ga-wdi-exercises/compliment-express">LAB</a>

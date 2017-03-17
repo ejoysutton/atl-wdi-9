@@ -1,0 +1,9 @@
+<h1> Yarr! here be Pirates from history! </h1>
+<ul>
+  {{#each pirates}}
+	<a href="/pirates/{{@index}}">{{name}}</a>
+    <br>
+  {{/each}}
+</ul>
+
+<a class="btn btn-default" href="/pirates/new">Create a New Pirate</a>

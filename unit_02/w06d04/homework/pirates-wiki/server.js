@@ -8,14 +8,12 @@ var bodyParser  = require('body-parser');
 var methodOverride = require('method-override');
 var app         = express();
 var port        = process.env.PORT || 3000;
+
 //Middleware
-app.use(methodOverride('_method'));
-
+app.use(methodOverride('_method'));\
 app.use( logger('dev'));
-
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 

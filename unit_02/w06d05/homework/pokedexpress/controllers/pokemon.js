@@ -19,16 +19,7 @@ router.get('/', function(req,res) {
   });
 });
 
-// Make a GET route '/index/:index' that will render the Pokemon's show page at that :index
-//
-// Example: a user goes to 'localhost:3000/pokemon/index/0' in the browser and data for Bulbasaur (the pokemon at index 0) will be displayed.
-router.get('/:index', function(req,res) {
-    var pokemonByIndex = data[req.params.index];
 
-    res.render('show', {
-      pokemonByIndex: pokemonByIndex
-  	});
-});
 
 // Make a GET route '/new' that will simply render a form to create a new Pokemon
 router.get('/new', function(req, res){
@@ -41,7 +32,17 @@ router.get('/new', function(req, res){
 //make a POST route '/' to create a New Pokemon
 router.post('/', function(req, res){
     var newPokemon = {
-        
+      name: req.body.name,
+      img: req.body.img,
+      type: req.body.type,
+      stats: {
+	      hp: req.body.hp,
+	      attack: req.body.attack,
+	      defense: req.body.defense,
+	      spattack: req.body.spattack,
+	      spdefense: req.body.spdefense,
+	      speed: req.body.speed,
+  		}	
     };
     data.push(newPokemon);
     res.redirect('/pokemon');
@@ -67,6 +68,16 @@ router.get('/:id/edit', function(req, res){
   });
 });
 
+// Make a GET route '/index/:index' that will render the Pokemon's show page at that :index
+//
+// Example: a user goes to 'localhost:3000/pokemon/index/0' in the browser and data for Bulbasaur (the pokemon at index 0) will be displayed.
+router.get('/:index', function(req,res) {
+    var pokemonByIndex = data[req.params.index];
+
+    res.render('show', {
+      pokemonByIndex: pokemonByIndex
+  	});
+});
 //***************************
 // DELETE
 //***************************

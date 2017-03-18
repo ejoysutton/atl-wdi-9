@@ -2,10 +2,7 @@ module.exports = [{
     id: "001",
     name: "Bulbasaur",
     img: "http://img.pokemondb.net/artwork/bulbasaur.jpg",
-    type: [
-      "Grass",
-      "Poison"
-    ],
+    type: ["Grass", "Poison"],
     stats: {
       hp: "45",
       attack: "49",

@@ -14,7 +14,7 @@ var data = require('../models/poke_array.js');
 // Make a GET route '/' that will render an index page of all pokemon images
 router.get('/', function(req,res) {
 
-  res.render('pokemon/index', {
+  res.render('index', {
     data: data
   });
 });
@@ -22,17 +22,17 @@ router.get('/', function(req,res) {
 // Make a GET route '/index/:index' that will render the Pokemon's show page at that :index
 //
 // Example: a user goes to 'localhost:3000/pokemon/index/0' in the browser and data for Bulbasaur (the pokemon at index 0) will be displayed.
-router.get('/:id', function(req,res) {
-    var data = data[req.params.id];
+router.get('/:index', function(req,res) {
+    var pokemonByIndex = data[req.params.index];
 
-    res.render('pokemon/show', {
-      data: data
+    res.render('show', {
+      pokemonByIndex: pokemonByIndex
   	});
 });
 
 // Make a GET route '/new' that will simply render a form to create a new Pokemon
 router.get('/new', function(req, res){
-    res.render('pokemon/new');
+    res.render('new');
  });
 
 //***************************

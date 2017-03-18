@@ -19,8 +19,6 @@ router.get('/', function(req,res) {
   });
 });
 
-
-
 // Make a GET route '/new' that will simply render a form to create a new Pokemon
 router.get('/new', function(req, res){
     res.render('new');
@@ -51,8 +49,8 @@ router.post('/', function(req, res){
 //***************************
 // UPDATE
 //***************************
-router.get('/:id/edit', function(req, res){
-  res.render('pokemon/edit', {
+router.get('/edit/:id', function(req, res){
+  res.render('edit', {
     data: {
       name: data[req.params.id].name,
       img: data[req.params.id].img,
@@ -67,6 +65,32 @@ router.get('/:id/edit', function(req, res){
     }
   });
 });
+router.put('/edit/:id', function(req, res) {
+    var editPokemon = data[req.params.id];
+      editPokemon.name = req.body.name;
+      editPokemon.img = req.body.img;
+      editPokemon.type = req.body.type;
+	  editPokemon.stats.hp = req.body.hp;
+      editPokemon.stats.attack = req.body.attack;
+      editPokemon.stats.defense = req.body.defense;
+      editPokemon.stats.spattack = req.body.spattack;
+      editPokemon.stats.spdefense = req.body.spdefense;
+      editPokemon.stats.speed = req.body.speed;
+    	res.redirect('/pokemon');
+});
+// router.post('/edit', function(req, res){
+//     var editPokemon = data[req.params.id];
+//       editPokemon.name = req.body.name;
+//       editPokemon.img = req.body.img;
+//       editPokemon.type = req.body.type;
+// 	  editPokemon.stats.hp: req.body.hp;
+//       editPokemon.stats.attack: req.body.attack;
+//       editPokemon.stats.defense: req.body.defense;
+//       editPokemon.stats.spattack: req.body.spattack;
+//       editPokemon.stats.spdefense: req.body.spdefense;
+//       editPokemon.stats.speed: req.body.speed;
+//     	res.redirect('/pokemon');
+// });
 
 // Make a GET route '/index/:index' that will render the Pokemon's show page at that :index
 //

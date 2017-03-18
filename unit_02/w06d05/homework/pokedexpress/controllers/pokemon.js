@@ -71,7 +71,12 @@ router.get('/:id/edit', function(req, res){
 // DELETE
 //***************************
 //make a DELETE route '/:index' that will delete the Pokemon at this index.
-
+router.delete('/:id', function(req, res) {
+    data.splice(req.params.id, 1); 
+    // remove the item from the array
+    res.redirect('/pokemon');  
+    // redirect back to the index route
+});
 
 
 //***************************

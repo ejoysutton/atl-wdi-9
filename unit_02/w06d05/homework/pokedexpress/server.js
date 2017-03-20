@@ -7,7 +7,7 @@ var app         	= express();
 var hbs         	= require('hbs');
 var bodyParser  	= require('body-parser');
 var methodOverride 	= require('method-override');
-
+var path        	= require('path');
 
 
 //***************************
@@ -18,6 +18,7 @@ app.set('view engine', 'hbs');
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static(__dirname + '/public'));
 
 //***************************
 // CONTROLLERS

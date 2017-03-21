@@ -8,9 +8,17 @@ var Tamagotchi = function(name, creatureType) {
 	this.restedness = 10;
 	this.health = 10;
 	this.cry = function() {
-    this.foodInTummy--;
-    console.log("WAHH!!!");
-    console.log(this.name + ' has this much food in tummy = ' + this.foodInTummy);
+		this.foodInTummy--;
+		console.log("WAHH!!!");
+		console.log(this.name + ' has this much food in tummy = ' + this.foodInTummy);
+	};
+	this.puke = function() {
+		this.foodInTummy--;
+		console.log('Waaaaaaghhhhhh ' + this.name + ' has this much food in tummy = ' + this.foodInTummy);
+	};
+	this.yawn = function(){
+    this.restedness--;
+    console.log(this.name + ' has current restedness = ' + this.restedness);
   };
 };
 
@@ -23,3 +31,9 @@ console.log(tamagotchi1);
 console.log(tamagotchi2);
 tamagotchi1.cry();
 tamagotchi2.cry();
+
+tamagotchi1.puke();
+tamagotchi2.puke();
+
+tamagotchi1.yawn();
+tamagotchi2.yawn();

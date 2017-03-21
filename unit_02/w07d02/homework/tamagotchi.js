@@ -13,8 +13,8 @@ var Tamagotchi = function(name, creatureType) {
 		console.log(this.name + ' has this much food in tummy = ' + this.foodInTummy);
 	};
 	this.puke = function() {
-		this.foodInTummy--;
-		console.log('Waaaaaaghhhhhh ' + this.name + ' has this much food in tummy = ' + this.foodInTummy);
+		this.health--;
+		console.log('Waaaaaaghhhhhh ' + this.name + ' has this much food in tummy = ' + this.health);
 	};
 	this.yawn = function(){
     this.restedness--;

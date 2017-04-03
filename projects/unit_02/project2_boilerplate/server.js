@@ -11,8 +11,8 @@ var sessionsController = require('./controllers/sessions.js');
 
 var app = express();
 
-// ADD THE NAME OF YOUR DATABASE
-// mongoose.connect('mongodb://localhost/<YourDatabaseNameHere>');
+
+mongoose.connect('mongodb://heroku_8jddbrfh:hugkjreq35221hlopm2vbktdk6@ds025239.mlab.com:25239/heroku_8jddbrfh');
 
 app.set('view engine', 'hbs')
 

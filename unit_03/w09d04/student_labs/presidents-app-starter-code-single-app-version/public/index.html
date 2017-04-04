@@ -12,10 +12,13 @@
 
     <section ng-controller="PresidentsController as presidents">
       <h1>The Presidents of the United States of America</h1>
-
+      <div ng-if='presidents.loadingAll'>
+          Loading...
+      </div>
       <ul id="presidents">
         <li ng-repeat="president in presidents.all">
-          <strong>{{president.name}}</strong> <em>({{president.start}} - {{president.end}})</em>
+          <strong>{{president.name}}</strong> <em>({{president.start}} - {{president.end}})</em><button ng-click="presidents.deletePresident(president)">X</button>
+
         </li>
       </ul>
 

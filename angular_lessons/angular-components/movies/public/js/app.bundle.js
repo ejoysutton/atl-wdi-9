@@ -63,72 +63,41 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-angular.module('bandsApp').controller('BandsController', BandsController);
+const angular = __webpack_require__(4);
 
-function BandsController() {
-    var vm = this;
-
-    vm.bandList = [{ band: 'Mad Caddies', hometown: 'Solvang, CA' }, { band: 'Ellwood', hometown: 'Solvang, CA' }, { band: 'Goldfinger', hometown: 'Los Angeles, CA' }, { band: 'Mephiskapheles', hometown: 'New York, NY' }, { band: 'Streetlight Manifesto', hometown: 'New Brunswick, NJ' }, { band: 'Less Than Jake', hometown: 'Gainesville, FL' }, { band: 'Reel Big Fish', hometown: 'Huntington Beach, CA' }, { band: 'Tokyo Ska Paridise Orchestra', hometown: 'Tokyo, Japan' }];
-}
-
-module.exports = BandsController;
+angular.module('moviesApp', []);
 
 /***/ }),
 /* 1 */
 /***/ (function(module, exports) {
 
+angular.module('moviesApp').controller('MoviesController', MoviesController);
 
-function InstrumentsController() {
-    this.instrumentList = [{ instrument: 'Guitar' }, { instrument: 'Bass' }, { instrument: 'Drums' }, { instrument: 'Trumpet' }, { instrument: 'Trombone' }, { instrument: 'Whatever they find in the back of the tour van' }];
+function MoviesController() {
+    var vm = this;
+
+    vm.movieList = [{ title: 'Toy Story 3', year: 2010 }, { title: 'In Bruges', year: 2008 }, { title: 'Breakin 2: Electric Boogaloo', year: 1984 }, { title: 'Drumline', year: 2002 }, { title: 'The Bicycle Thief', year: 1948 }];
 }
-
-module.exports = InstrumentsController;
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-const angular = __webpack_require__(6);
+angular.module('moviesApp').controller('ReviewsController', ReviewsController);
 
-angular.module('bandsApp', []);
+function ReviewsController() {
+    this.reviewList = [{ content: 'It was good.' }, { content: 'Meh.' }, { content: 'Did not like it.' }];
+}
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-let bandsTemplate = __webpack_require__(7);
-let BandsController = __webpack_require__(0);
-
-let bandsComponent = {
-    template: bandsTemplate,
-    controller: BandsController
-};
-
-angular.module('bandsApp').component('bands', bandsComponent);
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-let instrumentsTemplate = __webpack_require__(8);
-let InstrumentsController = __webpack_require__(1);
-
-let instrumentsComponent = {
-    template: instrumentsTemplate,
-    controller: InstrumentsController
-};
-
-angular.module('bandsApp').component('instruments', instrumentsComponent);
-
-/***/ }),
-/* 5 */
 /***/ (function(module, exports) {
 
 /**
@@ -33505,34 +33474,20 @@ $provide.value("$locale", {
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ }),
-/* 6 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(5);
+__webpack_require__(3);
 module.exports = angular;
 
 
 /***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-module.exports = "<div>\n    <h1>Ska Bands:</h1>\n    <h2>Toot Toot Banananananana</h2>\n    <div ng-repeat=\"band in $ctrl.bandList\">\n\n        <h3>Band Name: {{band.band}}</h3>\n        <h3>Hometown: {{band.hometown}}</h3>\n\n        <instruments></instruments>\n        <br>\n\n    </div>\n</div>";
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports) {
-
-module.exports = "<div>\n    <h3>Instruments:</h3>\n    <ul>\n        <li ng-repeat=\"instrument in $ctrl.instrumentList\">{{instrument.instrument}}</li>\n    </ul>\n</div>";
-
-/***/ }),
-/* 9 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(2);
-__webpack_require__(3);
 __webpack_require__(0);
-__webpack_require__(4);
-module.exports = __webpack_require__(1);
+__webpack_require__(1);
+module.exports = __webpack_require__(2);
 
 
 /***/ })

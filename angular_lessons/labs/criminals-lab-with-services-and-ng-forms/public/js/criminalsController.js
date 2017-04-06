@@ -4,7 +4,10 @@ angular
   .service('CriminalsService', CriminalsService);
 
 CriminalsController.$inject = ['CriminalsService'];
+<<<<<<< HEAD
 CriminalsService.$inject = ['$http'];
+=======
+>>>>>>> 4c31d1eb06fd288fe40473409d77498e8329c8ab
 
 function CriminalsController(CriminalsService){
   var self = this;
@@ -21,6 +24,7 @@ function CriminalsService($http) {
   console.log('criminalServ is alive!');
   // getCriminals();
 
+<<<<<<< HEAD
   self.getCriminals = function() {
     $http
       .get('/criminals')
@@ -42,6 +46,24 @@ function CriminalsService($http) {
   self.deleteCriminal = function() {
     $http
       .delete("/criminals/" + CriminalsController.all._id)
+=======
+  getCriminals();
+  function getCriminals(){
+    CriminalsService.getCriminals().then(function (criminalsData) {
+      self.all = criminalsData;
+    });
+  }
+
+  function addCriminal(){
+   CriminalsService.addCriminal(self.newCriminal).then(function(){
+     self.getCriminals();
+       self.newCriminal = {};
+   });
+  }
+
+  function deleteCriminal(criminal){
+    CriminalsService.deleteCriminal(criminal)
+>>>>>>> 4c31d1eb06fd288fe40473409d77498e8329c8ab
       .then(function(response){
         var index = CriminalsController.all.indexOf(criminal);
         CriminalsController.all.splice(index, 1);

@@ -5,7 +5,7 @@ function InstrumentsController() {
         {instrument: 'Bass'},
         {instrument: 'Drums'},
         {instrument: 'Trumpet'},
-        {instrument: 'Tombone'},
+        {instrument: 'Trombone'},
         {instrument: 'Whatever they find in the back of the tour van'}
     ]
 }

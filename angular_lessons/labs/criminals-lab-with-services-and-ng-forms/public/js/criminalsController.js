@@ -1,41 +1,53 @@
-angular.module('InfamousCriminals')
-.controller('CriminalsController', CriminalsController);
+angular
+  .module('InfamousCriminals', [])
+  .controller('CriminalsController', CriminalsController)
+  .service('CriminalsService', CriminalsService);
 
-CriminalsController.$inject = ['$http'];
+CriminalsController.$inject = ['CriminalsService'];
+CriminalsService.$inject = ['$http'];
 
-function CriminalsController($http){
+function CriminalsController(CriminalsService){
   var self = this;
+  console.log('criminalCtrl is alive!');
   self.all = [];
-  self.addCriminal = addCriminal;
+  self.addCriminal = CriminalsService.addCriminal(criminals);
   self.newCriminal = {};
-  self.getCriminals = getCriminals;
-  self.deleteCriminal = deleteCriminal;
+  self.getCriminals = CriminalsService.getCriminals();
+  self.deleteCriminal = CriminalsService.deleteCriminal();
+}
 
-  getCriminals();
-  function getCriminals(){
+function CriminalsService($http) {
+  var self = this;
+  console.log('criminalServ is alive!');
+  // getCriminals();
+
+  self.getCriminals = function() {
     $http
       .get('/criminals')
       .then(function(response){
-        self.all = response.data.criminals;
+        CriminalsController.all = response.data.criminals;
     });
   }
 
-  function addCriminal(){
+  self.addCriminal = function() {
     $http
-      .post('/criminals', self.newCriminal)
+      .post('/criminals', CriminalsController.newCriminal)
       .then(function(response){
-        getCriminals();
+        self.getCriminals();
     });
-    self.newCriminal = {};
+    CriminalsController.newCriminal = {};
+
   }
 
-  function deleteCriminal(criminal){
+  self.deleteCriminal = function() {
     $http
-      .delete("/criminals/" + criminal._id)
+      .delete("/criminals/" + CriminalsController.all._id)
       .then(function(response){
-        var index = self.all.indexOf(criminal);
-        self.all.splice(index, 1);
+        var index = CriminalsController.all.indexOf(criminal);
+        CriminalsController.all.splice(index, 1);
       });
   }
 
 }
+
+

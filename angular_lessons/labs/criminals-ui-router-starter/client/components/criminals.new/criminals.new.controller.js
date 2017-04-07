@@ -1,6 +1,6 @@
-CriminalsNewController.$inject = ['CriminalsService'];
+CriminalsNewController.$inject = ['CriminalsService', '$state'];
 
-function CriminalsNewController(CriminalsService) {
+function CriminalsNewController(CriminalsService, $state) {
 	const vm = this;
 
 	vm.newCriminal = {};
@@ -9,7 +9,7 @@ function CriminalsNewController(CriminalsService) {
 	activate();
 
 	function activate() {
-		addNewCriminal();
+		// addNewCriminal();
 	}
 
 	function addNewCriminal() {
@@ -18,6 +18,7 @@ function CriminalsNewController(CriminalsService) {
 			.addNewCriminal(vm.newCriminal)
 			.then(function () {
 				vm.newCriminal = {};
+				$state.go('criminals')
 			})
 
 	}

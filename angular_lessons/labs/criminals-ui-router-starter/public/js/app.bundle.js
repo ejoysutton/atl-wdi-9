@@ -82,9 +82,9 @@ module.exports = AboutController;
 /* 1 */
 /***/ (function(module, exports) {
 
-CriminalsNewController.$inject = ['CriminalsService'];
+CriminalsNewController.$inject = ['CriminalsService', '$state'];
 
-function CriminalsNewController(CriminalsService) {
+function CriminalsNewController(CriminalsService, $state) {
 	const vm = this;
 
 	vm.newCriminal = {};
@@ -93,13 +93,14 @@ function CriminalsNewController(CriminalsService) {
 	activate();
 
 	function activate() {
-		addNewCriminal();
+		// addNewCriminal();
 	}
 
 	function addNewCriminal() {
 		console.log(vm.newCriminal);
 		CriminalsService.addNewCriminal(vm.newCriminal).then(function () {
 			vm.newCriminal = {};
+			$state.go('criminals');
 		});
 	}
 }

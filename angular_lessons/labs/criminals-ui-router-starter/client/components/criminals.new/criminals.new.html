@@ -1,4 +1,5 @@
 <div>
+<<<<<<< HEAD
 Testing Yo
 
 	<form ng-submit="$ctrl.addNewCriminal($ctrl.newCriminal)" id="newCriminal">
@@ -7,3 +8,15 @@ Testing Yo
 		<button type="submit">Submit</button>
 	</form>
 </div>
+=======
+	<form ng-submit="$ctrl.createCriminal()">
+		<label for="name">Name:</label>
+		<input id="name" type="text" ng-model="$ctrl.newCriminal.name" />
+
+		<label for="name">Crime:</label>
+		<input id="crime" type="text" ng-model="$ctrl.newCriminal.crime" />
+
+		<button type="submit">Create</button>
+	</form>
+</div>
+>>>>>>> 190686e2a4310944f3a9498cb90e8ee3fd686497

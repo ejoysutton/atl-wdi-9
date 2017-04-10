@@ -6,11 +6,14 @@
   <li ng-hide="$ctrl.loading" ng-repeat="criminal in $ctrl.criminals">
     <strong>{{criminal.name}}</strong>
 
+<<<<<<< HEAD
 		<!-- Reference for Gerry -->
     <!-- <em>{{criminal.crime}}</em> -->
     
 <!--     <span ng-if="criminal.status" class='status {{criminal.status | lowercase }}'>{{criminal.status | uppercase}}</span>
  -->
+=======
+>>>>>>> 190686e2a4310944f3a9498cb90e8ee3fd686497
     <a ui-sref="criminalsShow({ criminalId: criminal._id })">Click to see their crime (in criminals#show)</a>
   </li>
 </ul>

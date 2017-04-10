@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 CriminalsNewController.$inject = ['CriminalsService', '$state'];
 
 function CriminalsNewController(CriminalsService, $state) {
@@ -26,3 +27,28 @@ function CriminalsNewController(CriminalsService, $state) {
 }
 
 module.exports = CriminalsNewController;
+=======
+CriminalsNewController.$inject = ['$state', 'CriminalsService'];
+
+function CriminalsNewController($state, CriminalsService) {
+	const vm = this;
+
+	vm.createCriminal = createCriminal;
+	vm.newCriminal = {};
+
+	activate();
+
+	function activate() {}
+
+	function createCriminal() {
+		CriminalsService
+			.create(vm.newCriminal)
+			.then(function resolve(response) {
+				const id = response.data.criminal._id;
+				$state.go('criminalsShow', { criminalId: id });
+			});
+	}
+}
+
+module.exports = CriminalsNewController;
+>>>>>>> 190686e2a4310944f3a9498cb90e8ee3fd686497

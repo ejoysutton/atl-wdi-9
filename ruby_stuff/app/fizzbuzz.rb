@@ -1,13 +1,11 @@
-number_array = (1..20).to_a
-
-number_array.each { |val|
-	if val % 15 == 0
+(1..20).each do |n|
+	if n % 15 == 0
 		puts "fizzbuzz"
-	elsif val % 5 == 0
+	elsif n % 5 == 0
 		puts "buzz"
-	elsif val % 3 == 0
+	elsif n % 3 == 0
 		puts "fizz"
 	else 
-		puts val
+		puts n
 	end
-}
+end

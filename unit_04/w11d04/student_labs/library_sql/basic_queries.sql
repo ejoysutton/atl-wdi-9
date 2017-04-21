@@ -14,7 +14,7 @@ SELECT title FROM books WHERE publication_date = 1985;
 -- Get all books published before 1989
 SELECT title FROM books WHERE publication_date < 1989;
 -- Get just the title of all books.
-SELECT title From books;
+SELECT title FROM books;
 -- Get just the year that 'A Dance with Dragons' was published
   -- Cry when you realize how long it's been
 SELECT publication_date FROM books WHERE title = 'A Dance with Dragons';

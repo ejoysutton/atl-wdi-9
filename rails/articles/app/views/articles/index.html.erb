@@ -1,0 +1,4 @@
+<h2>Articles</h2>
+<% @articles.each do |article| %>
+    <p> <%= link_to article.content, comments_path(article_id: article.id) %> </p>
+<% end %>

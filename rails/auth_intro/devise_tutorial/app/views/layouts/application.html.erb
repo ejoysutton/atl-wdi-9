@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DeviseTutorial</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <nav>
+    <ul>
+      <li><%= link_to "Welcome", welcome_path %></li>
+      <% if user_signed_in? %>
+       <li><%= link_to "Support", support_path %></li>
+       <li><%= link_to "Sign Out", destroy_user_session_path, method: "delete" %></li>
+      <% else %>
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <li><%= link_to "Sign In", new_user_session_path %></li>
+      <% end %>
+      <% if user_signed_in? && current_user.is_admin? %>
+      <li><%= link_to "Configure", configure_path %></li>
+      <% end %>
+    </ul>
+  </nav>
+    <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>
